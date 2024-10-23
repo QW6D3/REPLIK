@@ -26,7 +26,10 @@ export async function updateRss(): Promise<void> {
   }
 }
 
-async function uploadFile(filePath: PathLike, fileName: string): Promise<void> {
+export async function uploadFile(
+  filePath: PathLike,
+  fileName: string,
+): Promise<void> {
   const client = await connectMongo()
   if ('error' in client) {
     return
@@ -42,4 +45,20 @@ async function uploadFile(filePath: PathLike, fileName: string): Promise<void> {
   })
 }
 
-uploadFile('../test.txt', 'test.txt')
+export async function downloadFile(fileName: string): Promise<void> {
+  const client = await connectMongo()
+  if ('error' in client) {
+    return
+  }
+
+  const db: Db = client.db('replik')
+  const bucket = new GridFSBucket(db)
+
+  const downloadStream = bucket.openDownloadStreamByName(fileName)
+  const fileStream = fs.createWriteStream(fileName)
+  downloadStream.pipe(fileStream).on('finish', () => {
+    console.log('File downloaded')
+  })
+}
+
+downloadFile('test.txt')
