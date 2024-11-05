@@ -1,25 +1,20 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import Footer from './components/AppFooter.vue'
+import { RouterView } from 'vue-router'
+import AppFooter from './components/AppFooter.vue'
+import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
   <header>
     <div class="header-container">
-      <img alt="REPLIK logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
+      <img alt="REPLIK logo" class="logo" src="../src/assets/logoReplik.png" height="100" />
 
-      <div class="title">
-        <h1>REPLIK'</h1>
-      </div>
-
-      <nav class="nav-links">
-        <RouterLink to="/">Accueil</RouterLink>
-        <RouterLink to="/podcasts">Liste des podcasts</RouterLink>
-      </nav>
+      <NavBar />
     </div>
   </header>
   <body>
     <RouterView />
+    <AppFooter />
   </body>
   
 </template>
@@ -28,10 +23,10 @@ import Footer from './components/AppFooter.vue'
 header {
   position: fixed;
   top: 0;
+  align-items: flex-end; 
   left: 0;
   width: 100%;
   z-index: 1000;
-  border-bottom: 1px solid #e0e0e0;
 }
 
 main {
