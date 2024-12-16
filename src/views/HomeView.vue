@@ -1,16 +1,15 @@
 <template>
-  <main>
+  <main class="pageAccueil">
     <div class="lastRelease">
-      <div>
+      <div class="descPodcast">
         <h2>Dernière sortie</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent fringilla tristique quam at suscipit. Nulla luctus aliquam nulla tristique porttitor. Suspendisse gravida quam at gravida feugiat.</p>
-        <img src="../assets/playButton.png" alt="">
+        <p></p>
+        <img src="" alt="">
       </div>
-      <img src="../assets/ppPodcast.png" alt="">
+      <img src="../assets/ppDuel.png" alt="">
     </div>
 
-    <div>
-
+    <div id="podcastGrid" class="listPodcast">
     </div>
   </main>
 </template>

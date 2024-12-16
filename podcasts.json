@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nom": "Podcast 1",
+    "invite": "Invité 1",
+    "description": "Description 1",
+    "image": "./src/assets/ppMarvel.png"
+  },
+  {
+    "id": 2,
+    "nom": "Podcast 2",
+    "invite": "Invité 2",
+    "description": "Description 2",
+    "image": "./src/assets/ppDuel.png"
+  },
+  {
+    "id": 3,
+    "nom": "Podcast 3",
+    "invite": "Invité 3",
+    "description": "Description 3",
+    "image": "./src/assets/ppAnime.png"
+  },
+  {
+    "id": 4,
+    "nom": "Podcast 4",
+    "invite": "Invité 4",
+    "description": "Description 4",
+    "image": "./src/assets/ppSerie.png"
+  },
+  {
+    "id": 5,
+    "nom": "Podcast 5",
+    "invite": "Invité 5",
+    "description": "Description 5",
+    "image": "./src/assets/ppNoel.png"
+  },
+  {
+    "id": 6,
+    "nom": "Podcast 6",
+    "invite": "Invité 6",
+    "description": "Description 6",
+    "image": "./src/assets/ppJeux.png"
+  }
+]

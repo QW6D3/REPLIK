@@ -12,21 +12,21 @@
     </div>
 </template>
 <script>
-import podcastData from "@/assets/podcasts.json"
+    import podcastData from "@/assets/podcasts.json"
 
-export default {
-    name: "Podcast",
-    data() {
-        return {
-            podcasts: podcastData.podcasts
-        };
-    },
-    methods: {
-        goToPodcastDetail(index){
-            this.$router.push({name: 'DetailedPodcast', params: {id: index}})
+    export default {
+        name: "Podcast",
+        data() {
+            return {
+                podcasts: podcastData.podcasts
+            };
+        },
+        methods: {
+            goToPodcastDetail(index){
+                this.$router.push({name: 'DetailedPodcast', params: {id: index}})
+            }
         }
     }
-}
 </script>
 <style scoped>
 

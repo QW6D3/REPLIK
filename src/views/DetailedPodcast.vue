@@ -8,8 +8,5 @@
     <div class="podcast-inofs"></div>
    </div> 
 </template>
-<script>
-
-</script>
 <style scoped>
 </style>

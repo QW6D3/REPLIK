@@ -1,65 +1,113 @@
 {
-    "podcasts": [
-      {
-        "title": "Gaming Revolution",
-        "image": "https://example.com/images/gaming-revolution.jpg",
-        "description": "Explore the latest trends in the gaming industry with expert insights.",
-        "author": "John Doe",
-        "hosts": [
-          "John Doe",
-          "Jane Smith"
-        ],
-        "guest": "Alex Johnson",
-        "mp3_metadata": {
-          "file_name": "gaming_revolution_episode_1.mp3",
-          "file_size": "35MB",
-          "duration": "45:30",
-          "bit_rate": "128kbps",
-          "sample_rate": "44.1kHz",
-          "channels": "Stereo",
-          "mime_type": "audio/mpeg"
-        }
-      },
-      {
-        "title": "Tech Talks",
-        "image": "https://example.com/images/tech-talks.jpg",
-        "description": "Weekly discussions on emerging technologies and innovation.",
-        "author": "Emily White",
-        "hosts": [
-          "Emily White",
-          "Mark Brown"
-        ],
-        "guest": "Sophia Lee",
-        "mp3_metadata": {
-          "file_name": "tech_talks_episode_12.mp3",
-          "file_size": "50MB",
-          "duration": "60:15",
-          "bit_rate": "160kbps",
-          "sample_rate": "48kHz",
-          "channels": "Stereo",
-          "mime_type": "audio/mpeg"
-        }
-      },
-      {
-        "title": "Indie Dev Insights",
-        "image": "https://example.com/images/indie-dev-insights.jpg",
-        "description": "Interviews with indie game developers about their creative process.",
-        "author": "Lucas Miller",
-        "hosts": [
-          "Lucas Miller",
-          "Rachel Green"
-        ],
-        "guest": "Sam Carter",
-        "mp3_metadata": {
-          "file_name": "indie_dev_insights_episode_5.mp3",
-          "file_size": "40MB",
-          "duration": "55:20",
-          "bit_rate": "192kbps",
-          "sample_rate": "44.1kHz",
-          "channels": "Stereo",
-          "mime_type": "audio/mpeg"
-        }
+  "podcasts": [
+    {
+      "title": "Duel",
+      "image": "../assets/ppDuel.png",
+      "description": "Star Wars ou Le Seigneur des Anneaux : qui est le meilleur ? Débat entre deux fans de chaque univers, chacun essayant de défendre son univers préféré !",
+      "guests": [
+        "Clément",
+        "Paolo"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
       }
-    ]
-  }
+    },
+    {
+      "title": "Marvel",
+      "image": "../assets/ppMarvel.png",
+      "description": "I am Iron man",
+      "guests": [
+        "Simon",
+        "Gabin"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Anime",
+      "image": "../assets/ppAnime.png",
+      "description": "Mew Mew Power !",
+      "guests": [
+        "Jsp",
+        "Jsp2"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Jeux",
+      "image": "../assets/ppJeux.png",
+      "description": "Jouez a superman 64",
+      "guests": [
+        "Je sais toujours pas",
+        "Oscour"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Noel",
+      "image": "../assets/ppNoel.png",
+      "description": "Description de noel",
+      "guests": [
+        "Guests surprise !",
+        "Nan en vrai c'est juste que je sais toujours pas qui sera la"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Serie",
+      "image": "../assets/ppSerie.png",
+      "description": "Ouais il va etre cool lui",
+      "guests": [
+        "JE SAIS ENCORE ET TOUJOURS PAS",
+        "Force hein"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    }
+  ]
+}
   
