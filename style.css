@@ -19,6 +19,7 @@ html {
 
 .navbar {
     display: flex;
+    margin-right: 1rem;
 }
   
 .navbar ul {
@@ -39,26 +40,30 @@ html {
 }
   
 .nav-link:hover {
-    color: #471847; /* Couleur au survol */
+    color: #471847;
 }
   
 .active-link::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -3px; /* Distance sous le texte */
+    bottom: -3px;
     width: 100%;
-    height: 4px; /* Épaisseur de la barre */
-    background-color: white; /* Couleur de la barre */
+    height: 4px;
+    background-color: white;
 }
 
 /*--> Accueil <--*/
 .pageAccueil {
-    background-image: url("./src/assets/fond.png");
+    background-image: url("./src/assets/fondAccueil.png");
     background-repeat: no-repeat;
     background-size: auto;
     background-position: center top;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {
@@ -90,40 +95,120 @@ h2 {
 }
 
 .listPodcast {
-    display: flex;
-    justify-content: center;
-}
-
-.listPodcast div {
-    width: auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto auto;
-    grid-template-areas: 
-        "img1 img2 img3 img4"
-        ".    img5 img6 .";
-    gap: 1rem;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
 }
-
-.listPodcast div img:nth-child(1) { grid-area: img1; }
-.listPodcast div img:nth-child(2) { grid-area: img2; }
-.listPodcast div img:nth-child(3) { grid-area: img3; }
-.listPodcast div img:nth-child(4) { grid-area: img4; }
-.listPodcast div img:nth-child(5) { grid-area: img5; }
-.listPodcast div img:nth-child(6) { grid-area: img6; }
 
 .listPodcast img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/*--> About <--*/
+.aboutUs {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    text-align: justify;
+}
+
+.factsNotSoFunButDontWorryBeHappy {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; 
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.presentHost h2 {
+    text-align: center;
+}
+
+.theHost {
+    vertical-align: middle;
+    display: flex;
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.descHost {
+    align-self: center;
+    margin-left: 2rem;
+}
+
+.descHost p {
+    font-size: larger;
+    font-weight: bold;
+    margin: 0;
+}
+
+/*--> Contact <--*/
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-bottom:white solid 2px;
+    resize: none;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="submit"] {
+    align-self: center;
+    border-radius: 100rem;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    max-width: 50%;
+}
+
+.validationMessage {
+    align-items: center;
+    font-weight: bolder;
 }
 
 /*--> Footer <--*/
 .footer-container {
-    position: relative; /* Footer suit le flux normal du document */
+    position: relative;
     background-color: transparent;
     padding: 1.5rem 0;
     text-align: center;
@@ -133,14 +218,15 @@ h2 {
 }
 
 body, html {
-    min-height: 100vh; /* Assure que le contenu occupe toute la hauteur de la page */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
+    color: white;
 }
 
 main {
-    flex-grow: 1; /* Permet au contenu principal de prendre l'espace disponible */
+    flex-grow: 1;
 }
 
 .content {
@@ -156,6 +242,11 @@ main {
     justify-content: center;
     gap: 10px;
     margin-bottom: 1rem;
+}
+
+.logos img {
+    width: 30px;
+    object-fit: contain;
 }
 
 .footer-container p {

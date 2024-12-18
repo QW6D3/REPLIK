@@ -1,44 +1,112 @@
-[
-  {
-    "id": 1,
-    "nom": "Podcast 1",
-    "invite": "Invité 1",
-    "description": "Description 1",
-    "image": "./src/assets/ppMarvel.png"
-  },
-  {
-    "id": 2,
-    "nom": "Podcast 2",
-    "invite": "Invité 2",
-    "description": "Description 2",
-    "image": "./src/assets/ppDuel.png"
-  },
-  {
-    "id": 3,
-    "nom": "Podcast 3",
-    "invite": "Invité 3",
-    "description": "Description 3",
-    "image": "./src/assets/ppAnime.png"
-  },
-  {
-    "id": 4,
-    "nom": "Podcast 4",
-    "invite": "Invité 4",
-    "description": "Description 4",
-    "image": "./src/assets/ppSerie.png"
-  },
-  {
-    "id": 5,
-    "nom": "Podcast 5",
-    "invite": "Invité 5",
-    "description": "Description 5",
-    "image": "./src/assets/ppNoel.png"
-  },
-  {
-    "id": 6,
-    "nom": "Podcast 6",
-    "invite": "Invité 6",
-    "description": "Description 6",
-    "image": "./src/assets/ppJeux.png"
-  }
-]
+{
+  "podcasts": [
+    {
+      "title": "Duel",
+      "image": "src/assets/ppDuel.png",
+      "description": "Star Wars ou Le Seigneur des Anneaux : qui est le meilleur ? Débat entre deux fans de chaque univers, chacun essayant de défendre son univers préféré !",
+      "guests": [
+        "Clément",
+        "Paolo"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Marvel",
+      "image": "src/assets/ppMarvel.png",
+      "description": "I am Iron man",
+      "guests": [
+        "Simon",
+        "Gabin"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Anime",
+      "image": "src/assets/ppAnime.png",
+      "description": "Mew Mew Power !",
+      "guests": [
+        "Jsp",
+        "Jsp2"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Jeux",
+      "image": "src/assets/ppJeux.png",
+      "description": "Jouez a superman 64",
+      "guests": [
+        "Je sais toujours pas",
+        "Oscour"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Noel",
+      "image": "src/assets/ppNoel.png",
+      "description": "Description de noel",
+      "guests": [
+        "Guests surprise !",
+        "Nan en vrai c'est juste que je sais toujours pas qui sera la"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "title": "Serie",
+      "image": "src/assets/ppSerie.png",
+      "description": "Ouais il va etre cool lui",
+      "guests": [
+        "JE SAIS ENCORE ET TOUJOURS PAS",
+        "Force hein"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    }
+  ]
+}

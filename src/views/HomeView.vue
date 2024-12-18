@@ -3,10 +3,10 @@
     <div class="lastRelease">
       <div class="descPodcast">
         <h2>Dernière sortie</h2>
-        <p></p>
-        <img src="" alt="">
+        <p id="descContent"></p>
+        <img src="../assets/playButton.png" />
       </div>
-      <img src="../assets/ppDuel.png" alt="">
+      <img src="" alt="" class="profilImage">
     </div>
 
     <div id="podcastGrid" class="listPodcast">
