@@ -1,12 +1,16 @@
+<script lang="ts" setup>
+</script>
 <template>
    <div v-if="podcast">
-    <img 
+    <img
         :src="podcast.image"
         :alt="podcast.title"
         class="podcast-cover"
     />
-    <div class="podcast-inofs"></div>
-   </div> 
+    <div class="podcast-infos"></div>
+
+   </div>
 </template>
+
 <style scoped>
 </style>
