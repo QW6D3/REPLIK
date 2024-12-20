@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AudioPlayer from "../components/AudioPlayer.vue";
 import { useRoute } from "vue-router";
-import podcastData from "../assets/podcasts.json";
+import podcastData from "../../podcasts.json";
 
 const route = useRoute();
 const podcastId = route.params.idPodcast;
@@ -17,7 +17,7 @@ const podcast = podcastData.podcasts.find((podcast) => podcast.id == podcastId)
         <p>{{ podcast.description }}</p>
       </div>
       <div class="podcast-img">
-        <img :src="`/src/assets/${podcast.image}`" :alt="podcast.title" />
+        <img :src="`../${podcast.image}`" :alt="podcast.title" />
       </div>
     </div>
     <AudioPlayer :audioUrl="`/src/assets/audio/${podcast.mp3_metadata.file_name}`" />
@@ -55,6 +55,10 @@ const podcast = podcastData.podcasts.find((podcast) => podcast.id == podcastId)
 .podcast-text{
   width: 50%;
   padding-right: 15px;
+}
+.podcast-text h1 {
+  display: flex;
+  justify-content: start;
 }
 .podcast-img img{
   width: 275px;

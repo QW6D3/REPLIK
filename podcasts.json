@@ -1,6 +1,7 @@
 {
   "podcasts": [
     {
+      "id": 1,
       "title": "Duel",
       "image": "src/assets/ppDuel.png",
       "description": "Star Wars ou Le Seigneur des Anneaux : qui est le meilleur ? Débat entre deux fans de chaque univers, chacun essayant de défendre son univers préféré !",
@@ -9,7 +10,7 @@
         "Paolo"
       ],
       "mp3_metadata": {
-        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_name": "podcastTest.mp3",
         "file_size": "35MB",
         "duration": "45:30",
         "bit_rate": "128kbps",
@@ -19,6 +20,7 @@
       }
     },
     {
+      "id": 2,
       "title": "Marvel",
       "image": "src/assets/ppMarvel.png",
       "description": "I am Iron man",
@@ -37,6 +39,7 @@
       }
     },
     {
+      "id": 3,
       "title": "Anime",
       "image": "src/assets/ppAnime.png",
       "description": "Mew Mew Power !",
@@ -55,6 +58,7 @@
       }
     },
     {
+      "id": 4,
       "title": "Jeux",
       "image": "src/assets/ppJeux.png",
       "description": "Jouez a superman 64",
@@ -73,6 +77,7 @@
       }
     },
     {
+      "id": 5,
       "title": "Noel",
       "image": "src/assets/ppNoel.png",
       "description": "Description de noel",
@@ -91,6 +96,7 @@
       }
     },
     {
+      "id": 6,
       "title": "Serie",
       "image": "src/assets/ppSerie.png",
       "description": "Ouais il va etre cool lui",

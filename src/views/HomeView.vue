@@ -4,9 +4,11 @@
       <div class="descPodcast">
         <h2>Dernière sortie</h2>
         <p id="descContent"></p>
-        <img src="../assets/playButton.png" />
+        <a id="playLink">
+          <img src="../assets/playButton.png" alt="Play Button" class="playIcon">
+        </a>
       </div>
-      <img src="" alt="" class="profilImage">
+      <img src="" alt="Profil Podcast" class="profilImage">
     </div>
 
     <div id="podcastGrid" class="listPodcast">

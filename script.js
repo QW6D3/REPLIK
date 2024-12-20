@@ -10,9 +10,15 @@ fetch('podcasts.json')
       
       lastReleaseDesc.textContent = latestPodcast.description || "Description indisponible";
       lastReleaseImage.src = latestPodcast.image;
+
+      const podcastUrl = `/podcasts/${latestPodcast.id}`;
+      playLink.href = podcastUrl;
     }
 
     podcasts.podcasts.forEach(podcast => {
+      const link = document.createElement('a');
+      link.href = `/podcasts/${podcast.id}`;
+
       const img = document.createElement('img');
       img.src = podcast.image;
       img.alt = `Illustration de ${podcast.title}`;
@@ -20,36 +26,11 @@ fetch('podcasts.json')
       img.height = 200;
       img.style.objectFit = "cover";
       img.style.borderRadius = "10px";
+      img.href = `/podcasts/${podcast.id}`;
+
+      link.appendChild(img);
   
-      podcastGrid.appendChild(img);
+      podcastGrid.appendChild(link);
     });
-
-    // Calculer le nombre total d'épisodes et le temps total
-    const totalEpisodes = podcasts.podcasts.length;
-    const totalTimeInSeconds = podcasts.podcasts.reduce((sum, podcast) => {
-      const durationParts = podcast.mp3_metadata.duration.split(':'); // Forme HH:MM:SS ou MM:SS
-      const seconds = durationParts.reduce((acc, part, index) => {
-        return acc + parseInt(part) * Math.pow(60, durationParts.length - index - 1);
-      }, 0);
-      return sum + seconds;
-    }, 0);
-
-    // Convertir le temps total en heures, minutes, secondes
-    const totalHours = Math.floor(totalTimeInSeconds / 3600);
-    const totalMinutes = Math.floor((totalTimeInSeconds % 3600) / 60);
-    const totalSeconds = totalTimeInSeconds % 60;
-    const formattedTotalTime = `${totalHours}h ${totalMinutes}m ${totalSeconds}s`;
-
-    // Mettre à jour le DOM avec le nombre d'épisodes et le temps total
-    const nbrEpisodesElement = document.querySelector('.nbrEpisodes h3');
-    const nbrTempsElement = document.querySelector('.nbrTemps h3');
-
-    if (nbrEpisodesElement) {
-      nbrEpisodesElement.textContent = totalEpisodes;
-    }
-
-    if (nbrTempsElement) {
-      nbrTempsElement.textContent = formattedTotalTime;
-    }
   })
   .catch(error => console.error("Erreur de chargement du fichier JSON :", error));
