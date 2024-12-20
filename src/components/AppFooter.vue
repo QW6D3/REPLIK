@@ -13,7 +13,7 @@
         <a href="#">A Propos</a>
         <a href="/">Nos podcasts</a>
         <a href="#">Politique de confidentialité</a>
-        <a href="#">Contactez-nous</a>
+        <a href="/contact">Contactez-nous</a>
       </nav>
       <p>&copy; REPLIK' 2024-2025</p>
     </div>

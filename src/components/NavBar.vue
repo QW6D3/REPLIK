@@ -5,7 +5,7 @@ import { RouterLink } from 'vue-router'
 <template>
   <header class="header">
     <div class="logo">
-      <img class="logo" src="../assets/logoReplik.png" alt="Logo Replik" />
+      <a href="/"><img class="logo" src="../assets/logoReplik.png" alt="Logo Replik" /></a>
     </div>
     <nav class="navbar">
       <ul>

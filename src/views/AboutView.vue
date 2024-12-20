@@ -25,13 +25,15 @@
 
     <div class="presentHost">
       <h2>Notre hôte</h2>
-      <div class="theHost">
-        <img src="../assets/photoTristan.png">
-        <div class="descHost">
-          <p>PLAYEstation</p>
-          <p>Tristan</p>
+      <a target="_blank" href="https://www.instagram.com/tristan.playe/">
+        <div class="theHost">
+          <img src="../assets/photoTristan.png">
+          <div class="descHost">
+            <p>PLAYEstation</p>
+            <p>Tristan</p>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
 
     <div class="lastRelease">
