@@ -8,15 +8,10 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: '/REPLIK/',
+  base: process.env.VITE_BASE_URL,
   build:{
-    rollupOptions:{
-      input:{
-        main: 'src/router/index.ts'
-      },
-    },
-    outDir: './replik_podcast',
-    emptyOutDir: true
+    outDir: process.env.VITE_OUT_DIR,
+    emptyOutDir: false
   },
   resolve: {
     alias: {

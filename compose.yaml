@@ -1,0 +1,13 @@
+services:
+  front-builder:
+    image: node:22-alpine
+    environment:
+      - VITE_BASE_URL=/replik
+      - VITE_OUT_DIR=/usr/src/app/
+      - VITE_API_URL=http://localhost:8000/api
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: ["/bin/sh", "-c", "npm ci && npm run build"]
+    ports:
+      - "3000:5173"
