@@ -1,14 +1,17 @@
 {
+<<<<<<< HEAD
   "extends": "./node_modules/@vue/tsconfig/tsconfig.dom.json",
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+=======
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "emailService.js"],
+>>>>>>> 3b8d0e28aa813d4146919ba4656210d21c201d61
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
+    "strict": true
   }
 }
