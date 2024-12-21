@@ -1,64 +1,42 @@
-import {
-  MongoClient,
-  GridFSBucket,
-  type Db,
-  type MongoClient as MongoClientType,
-} from 'mongodb'
-import fs, { PathLike } from 'fs'
+import { Feed } from "feed";
+import { podcast } from "../models/Podcast";
 
-async function connectMongo(): Promise<
-  MongoClientType | { error: string; details: string }
-> {
-  const client = new MongoClient('mongodb://localhost:27017')
-  try {
-    await client.connect()
-    return client
-  } catch (error) {
-    console.error('Connection failed', error)
-    return { error: 'Connection failed', details: (error as Error).message }
-  }
-}
+const feed = new Feed({
+  title: podcast.title,
+  description: podcast.description,
+  id: podcast.link,
+  link: podcast.link,
+  language: podcast.language,
+  copyright: podcast.copyright,
+  author: { name: podcast.author },
+  image: podcast.image,
+  feedLinks: {
+    rss: podcast.feedUrl,
+  },
+});
 
-export async function updateRss(): Promise<void> {
-  const client = await connectMongo()
-  if ('error' in client) {
-    return
-  }
-}
+// Add episodes to the feed
+podcast.episodes.forEach((episode) => {
+  feed.addItem({
+    title: episode.title,
+    description: episode.description,
+    id: episode.url,
+    link: episode.url,
+    date: new Date(episode.pubDate),
+    enclosure: {
+      url: episode.url,
+      length: episode.length,
+      type: episode.type,
+    },
+    itunes: {
+      duration: episode.duration,
+      explicit: episode.explicit ? "yes" : "no",
+      episode: episode.episode,
+      season: episode.season,
+      episodeType: episode.episodeType,
+      image: episode.image,
+    },
+  });
+});
 
-export async function uploadFile(
-  filePath: PathLike,
-  fileName: string,
-): Promise<void> {
-  const client = await connectMongo()
-  if ('error' in client) {
-    return
-  }
-
-  const db: Db = client.db('replik')
-  const bucket = new GridFSBucket(db)
-
-  const uploadStream = bucket.openUploadStream(fileName)
-  const fileStream = fs.createReadStream(filePath)
-  fileStream.pipe(uploadStream).on('finish', () => {
-    console.log('File uploaded')
-  })
-}
-
-export async function downloadFile(fileName: string): Promise<void> {
-  const client = await connectMongo()
-  if ('error' in client) {
-    return
-  }
-
-  const db: Db = client.db('replik')
-  const bucket = new GridFSBucket(db)
-
-  const downloadStream = bucket.openDownloadStreamByName(fileName)
-  const fileStream = fs.createWriteStream(fileName)
-  downloadStream.pipe(fileStream).on('finish', () => {
-    console.log('File downloaded')
-  })
-}
-
-downloadFile('test.txt')
+console.log(feed.rss2());

@@ -1,24 +1,43 @@
 name: replik
 services:
+
+  buildFront:
+    image: node:22
+    container_name: vite-builder
+    volumes:
+      - ./front/src:/usr/src/app
+
+    profiles:
+      - build
+
   api:
     container_name: node-server
-    image: node:20-alpine
-    restart: always
-    command: [ sh, -c, 'cd /usr/src/app && npm i && node server.js' ]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: [ sh, -c, 'cd /usr/src/app && node server.js' ]
+    networks:
+      - backend
     volumes:
-      - ./secureApiRest:/usr/src/app
+      - ./secureApiRest:/usr/src/app/api
     ports:
       - 8000:3000
 
   mongodb:
     container_name: mongo
-    restart: always
+    image: mongo:latest
+    networks:
+      - backend
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: admin
-    image: mongo:latest
     volumes:
       - database:/data/db
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
 
 volumes:
   database:
