@@ -1,0 +1,282 @@
+/*--> General <--*/
+html {
+    background-color: black;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/*--> Header <--*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1rem;
+    height: 80px;
+}
+
+.logo {
+    height: 100%;
+}
+
+.navbar {
+    display: flex;
+    margin-right: 1rem;
+}
+  
+.navbar ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-link {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+  
+.nav-link:hover {
+    color: #471847;
+}
+  
+.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+
+/*--> Accueil <--*/
+.pageAccueil {
+    background-image: url("./src/assets/fondAccueil.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center top;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+  color: white;
+  font-weight: bold;
+}
+
+.lastRelease {
+  vertical-align: middle;
+  display: flex;
+  width: 50%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  color: white;
+}
+
+.lastRelease img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-top: 1%;
+}
+
+.descPodcast img {
+  width: 10%;
+  height: auto;
+  margin-top: 1%;
+}
+
+.listPodcast {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.listPodcast img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/*--> About <--*/
+.aboutUs {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    text-align: justify;
+}
+
+.factsNotSoFunButDontWorryBeHappy {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; 
+}
+
+h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.presentHost h2 {
+    text-align: center;
+}
+
+.theHost {
+    vertical-align: middle;
+    display: flex;
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.descHost {
+    align-self: center;
+    margin-left: 2rem;
+}
+
+.descHost p {
+    font-size: larger;
+    font-weight: bold;
+    margin: 0;
+}
+
+/*--> Contact <--*/
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: black;
+    color: white;
+    border: none;
+    border-bottom:white solid 2px;
+    resize: none;
+    margin-bottom: 1rem;
+}
+
+textarea {
+    height: 150px;
+}
+
+input[type="submit"] {
+    align-self: center;
+    border-radius: 100rem;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-weight: bold;
+    max-width: 50%;
+}
+
+.validationMessage {
+    align-items: center;
+    font-weight: bolder;
+}
+
+/*--> Footer <--*/
+.footer-container {
+    position: relative;
+    background-color: transparent;
+    padding: 1.5rem 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+body, html {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: white;
+}
+
+main {
+    flex-grow: 1;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.logos img {
+    width: 30px;
+    object-fit: contain;
+}
+
+.footer-container p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: white;
+}
+
+.footer-container nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.footer-container nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.footer-container nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-container img {
+    height: 50px;
+    padding: 0.5rem;
+}
