@@ -21,7 +21,6 @@ const podcastRouter = require("./routes/podcast");
 const rssRouter = require("./routes/rss");
 
 // Setup all the routes
-app.use("/api/messages", messagesRouter);
 app.use("/api/podcast", podcastRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/rss", rssRouter);
