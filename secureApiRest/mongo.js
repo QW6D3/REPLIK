@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 const { createReadStream, createWriteStream } = require("fs");
 const { Schema } = mongoose;
 
-mongoose.connect("mongodb://root:admin@mongodb:27017", {
-    authSource: "admin"
-});
+mongoose.connect("mongodb://localhost:27017");
 
 const podcastSchema = new Schema({
     title: String,

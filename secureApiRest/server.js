@@ -6,24 +6,27 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(cors());
+corsOptions = {
+  allowedHeaders: ['Content-Type', 'x-auth-token'],
+  exposedHeaders: ['x-auth-token'],
 }
 
-corsOptions = {
-  origin: "http://localhost:5173",
-  optionsSuccessStatus: 200
-}
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
+
 // Import routes
 const authRouter = require("./routes/auth");
-const messagesRouter = require("./routes/messages");
 const podcastRouter = require("./routes/podcast");
 const rssRouter = require("./routes/rss");
+const testRouter = require("./routes/test");
 
 // Setup all the routes
 app.use("/api/podcast", podcastRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/rss", rssRouter);
+app.use("/api/test", testRouter);
+
 
 // Start the server
 app.listen(port, () => {

@@ -48,7 +48,7 @@
 
         try {
             const formData = new FormData(this);
-            const response = await fetch("http://localhost:8000/api/podcast", {
+            const response = await fetch("http://localhost:8000/api/podcast",{
                 method: "POST",
                 body: formData
             });

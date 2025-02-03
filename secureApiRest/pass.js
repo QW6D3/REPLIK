@@ -1,8 +1,8 @@
 // Import dependencies
-import { genSalt, hash } from "bcrypt";
+const bcrypt = require("bcrypt");
 
 (async () => {
     // Hash the password
-    const salt = await genSalt(15);
-    console.log(await hash("123", salt));
+    const salt = await bcrypt.genSalt(15);
+    console.log(await bcrypt.hash("ReAdminPlik", salt));
 })();
