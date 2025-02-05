@@ -1,3 +1,22 @@
+<script setup>
+import { ref, computed } from 'vue'
+
+const podcasts = ref([])
+const latestPodcast = computed(() => podcasts.value[0] || null)
+
+async function fetchPodcasts() {
+  try {
+    const response = await fetch('podcasts.json')
+    const data = await response.json()
+    podcasts.value = data.podcasts
+  } catch (error) {
+    console.error("Erreur de chargement du fichier JSON :", error)
+  }
+}
+
+fetchPodcasts()
+</script>
+
 <template>
   <main class="pageAccueil">
     <div class="lastRelease" v-if="latestPodcast">
@@ -19,28 +38,3 @@
     </div>
   </main>
 </template>
-
-<script>
-export default {
-  name: 'HomeView',
-  data() {
-    return {
-      podcasts: []
-    }
-  },
-  computed: {
-    latestPodcast() {
-      return this.podcasts[0] || null
-    }
-  },
-  async created() {
-    try {
-      const response = await fetch('podcasts.json')
-      const data = await response.json()
-      this.podcasts = data.podcasts
-    } catch (error) {
-      console.error("Erreur de chargement du fichier JSON :", error)
-    }
-  }
-}
-</script>
