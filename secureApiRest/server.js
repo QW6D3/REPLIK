@@ -11,13 +11,8 @@ const port = 3000;
 
 app.use(cors());
 
-const corsOptions = {
-  origin: "http://localhost:5173",
-  optionsSuccessStatus: 200
-};
-
 // Setup all the routes
-app.use("/api/podcast", podcastRouter);
+app.use("/api/podcasts", podcastRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/rss", rssRouter);
 

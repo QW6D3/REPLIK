@@ -28,6 +28,10 @@
             <label for="file">Select Audio File:</label>
             <input type="file" id="file" name="podcast" accept="audio/*" required>
         </div>
+        <div>
+            <label for="file">Select Image File:</label>
+            <input type="file" id="file" name="cover" accept="image/*" required>
+        </div>
         <div class="form-group">
             <label for="title">Podcast Title:</label>
             <input type="text" id="title" name="title" required>
@@ -48,7 +52,7 @@
 
         try {
             const formData = new FormData(this);
-            const response = await fetch("http://localhost:8000/api/podcast", {
+            const response = await fetch("http://localhost:8000/api/podcasts", {
                 method: "POST",
                 body: formData
             });
