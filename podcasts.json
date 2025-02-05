@@ -1,0 +1,118 @@
+{
+  "podcasts": [
+    {
+      "id": 1,
+      "title": "Duel",
+      "image": "src/assets/ppDuel.png",
+      "description": "Star Wars ou Le Seigneur des Anneaux : qui est le meilleur ? Débat entre deux fans de chaque univers, chacun essayant de défendre son univers préféré !",
+      "guests": [
+        "Clément",
+        "Paolo"
+      ],
+      "mp3_metadata": {
+        "file_name": "podcastTest.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Marvel",
+      "image": "src/assets/ppMarvel.png",
+      "description": "I am Iron man",
+      "guests": [
+        "Simon",
+        "Gabin"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Anime",
+      "image": "src/assets/ppAnime.png",
+      "description": "Mew Mew Power !",
+      "guests": [
+        "Jsp",
+        "Jsp2"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Jeux",
+      "image": "src/assets/ppJeux.png",
+      "description": "Jouez a superman 64",
+      "guests": [
+        "Je sais toujours pas",
+        "Oscour"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Noel",
+      "image": "src/assets/ppNoel.png",
+      "description": "Description de noel",
+      "guests": [
+        "Guests surprise !",
+        "Nan en vrai c'est juste que je sais toujours pas qui sera la"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Serie",
+      "image": "src/assets/ppSerie.png",
+      "description": "Ouais il va etre cool lui",
+      "guests": [
+        "JE SAIS ENCORE ET TOUJOURS PAS",
+        "Force hein"
+      ],
+      "mp3_metadata": {
+        "file_name": "gaming_revolution_episode_1.mp3",
+        "file_size": "35MB",
+        "duration": "45:30",
+        "bit_rate": "128kbps",
+        "sample_rate": "44.1kHz",
+        "channels": "Stereo",
+        "mime_type": "audio/mpeg"
+      }
+    }
+  ]
+}
