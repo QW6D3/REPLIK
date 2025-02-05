@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AudioPlayer from "../components/AudioPlayer.vue";
 import { useRoute } from "vue-router";
-import podcastData from "../../podcasts.json";
+import podcastData from "../../../podcasts.json";
 
 const route = useRoute();
 const podcastId = route.params.idPodcast;
