@@ -2,25 +2,33 @@
 import AudioPlayer from "../components/AudioPlayer.vue";
 import { useRoute } from "vue-router";
 import podcastData from "../../podcasts.json";
+import { onMounted, ref } from "vue";
+import { API_URL } from "@/config";
 
 const route = useRoute();
 const podcastId = route.params.idPodcast;
-const podcast = podcastData.podcasts.find((podcast) => podcast.id == podcastId)
+const podcast = ref();
+onMounted(async () => {
+  let data = await fetch(`${API_URL}/podcasts/${podcastId}`)
+  data = await data.json()
+  console.log(data);
+  podcast.value = data;
+})
 </script>
 <template>
   <div v-if="podcast" class="podcast">
     <div class="podcast-infos">
       <div class="podcast-text">
-        <h1>Episode : {{ podcast.id }}</h1>
+        <h1>Episode : {{ podcast.number }}</h1>
         <h2>{{ podcast.title }}</h2>
-        <p>Guests: {{ podcast.guests.join(", ") }}</p>
+        <p>Guests: {{ podcast.authors.join(', ') }}</p>
         <p>{{ podcast.description }}</p>
       </div>
       <div class="podcast-img">
-        <img :src="`../${podcast.image}`" :alt="podcast.title" />
+        <img :src="`${API_URL}/podcasts/${podcastId}/cover`" :alt="podcast.title" />
       </div>
     </div>
-    <AudioPlayer :audioUrl="`/src/assets/audio/${podcast.mp3_metadata.file_name}`" />
+    <AudioPlayer :audioUrl="`${API_URL}/podcasts/${podcastId}/audio`" />
   </div>
 
   <div v-else class="podcast">
@@ -40,9 +48,10 @@ const podcast = podcastData.podcasts.find((podcast) => podcast.id == podcastId)
   flex-direction: column;
   gap: 50px;
 }
+
 /* End -  Général*/
 /* Start -  podcast infos (text + img)*/
-.podcast-infos{
+.podcast-infos {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,43 +59,51 @@ const podcast = podcastData.podcasts.find((podcast) => podcast.id == podcastId)
   margin: auto;
   max-width: 1300px;
 }
+
 /* End -  podcast infos (text + img)*/
 /* Start -  podcast infos detailed*/
-.podcast-text{
+.podcast-text {
   width: 50%;
   padding-right: 15px;
 }
+
 .podcast-text h1 {
   display: flex;
   justify-content: start;
 }
-.podcast-img img{
+
+.podcast-img img {
   width: 275px;
   border-radius: 15px;
 }
+
 /* End -  podcast infos detailed*/
 
 /* --- Responsive ---  */
 
 /* Start - Mobile Screen */
 @media screen and (max-width: 480px) {
+
   /* Start - Podcast container */
-  .podcast-infos{
+  .podcast-infos {
     flex-direction: column-reverse;
   }
+
   /* End - Podcast container */
   /* Start - podcast infos (text + img) */
-  .podcast-infos > div{
+  .podcast-infos>div {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
   }
-  .podcast-text{
+
+  .podcast-text {
     padding-right: 0;
   }
+
   /* End - podcast infos (text + img) */
 }
-/* End - Mobile Screen */
 
+/* End - Mobile Screen */
 </style>
