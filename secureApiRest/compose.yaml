@@ -15,11 +15,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: [ sh, -c, 'cd /usr/src/app && node server.js' ]
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    command: [ "sh", "-c", "npm i && dumb-init node server.js" ]
     networks:
       - backend
-    volumes:
-      - ./secureApiRest:/usr/src/app/api
     ports:
       - 8000:3000
 
@@ -31,6 +32,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
     volumes:
       - database:/data/db
 
