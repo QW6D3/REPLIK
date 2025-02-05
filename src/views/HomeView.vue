@@ -1,20 +1,23 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { API_URL } from '@/config';
+import { ref, computed, onMounted } from 'vue'
 
 const podcasts = ref([])
 const latestPodcast = computed(() => podcasts.value[0] || null)
 
-async function fetchPodcasts() {
+onMounted(async () => {
   try {
-    const response = await fetch('podcasts.json')
+    const response = await fetch(`${API_URL}/podcasts`)
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
     const data = await response.json()
-    podcasts.value = data.podcasts
+
+    podcasts.value = data
   } catch (error) {
     console.error("Erreur de chargement du fichier JSON :", error)
   }
-}
-
-fetchPodcasts()
+})
 </script>
 
 <template>
@@ -23,17 +26,17 @@ fetchPodcasts()
       <div class="descPodcast">
         <h2>Dernière sortie</h2>
         <p>{{ latestPodcast.description || "Description indisponible" }}</p>
-        <a :href="`/podcasts/${latestPodcast.id}`">
+        <a :href="`/podcasts/${latestPodcast._id}`">
           <img src="../assets/playButton.png" alt="Play Button" class="playIcon">
         </a>
       </div>
-      <img :src="latestPodcast.image" alt="Profil Podcast" class="profilImage">
+      <img :src="`${API_URL}/${latestPodcast.cover}`" alt="Profil Podcast" class="profilImage">
     </div>
 
     <div class="listPodcast">
-      <a v-for="podcast in podcasts" :key="podcast.id" :href="`/podcasts/${podcast.id}`">
-        <img :src="podcast.image" :alt="`Illustration de ${podcast.title}`" :width="200" :height="200"
-          style="object-fit: cover; border-radius: 10px;">
+      <a v-for="podcast in podcasts" :key="podcast._id" :href="`/podcasts/${podcast._id}`">
+        <img :src="`${API_URL}/${podcast.coverUrl}`" :alt="`Illustration de ${podcast.title}`" :width="200"
+          :height="200" style="object-fit: cover; border-radius: 10px;">
       </a>
     </div>
   </main>
