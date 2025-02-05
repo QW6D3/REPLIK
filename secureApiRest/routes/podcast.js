@@ -1,33 +1,66 @@
-const express = require("express");
-const mongo = require("../mongo");
-const multer = require("multer");
-const path = require("path");
+import express from "express";
+import mongo from "../mongo.js";
+import { parseBuffer } from "music-metadata";
+import { getAudioPeaks } from "../audio.js";
+import multer from "multer";
 
-// Define storage configuration
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const uploadFolder = path.join(__dirname, "../uploads"); // Set the destination folder
-        cb(null, uploadFolder);
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.originalname);
-    },
-});
 
-const upload = multer({ storage: storage }).single('podcast'); // Pass storage to multer
+const upload = multer().single('podcast'); // Pass storage to multer
 
 const router = express.Router();
 
-router.get("/:podcastId", async (req, res) => {
+router.get("/", async (req, res) => {
     try {
-        const podcastId = req.params.podcastId;
-        const podcast = await mongo.getPodcastByTitle(podcastId);
+        const podcasts = await mongo.getPodcastsMeta();
+        res.status(200).send(podcasts);
+    } catch (error) {
+        res.status(500).send({ message: "Server error", error });
+    }
+});
+
+router.get("/:podcastTitle", async (req, res) => {
+    try {
+        const podcastTitle = req.params.podcastTitle;
+        const podcast = await mongo.getPodcastByTitle(podcastTitle);
         if (!podcast) {
             return res.status(404).send({ message: "Podcast not found" });
         }
         res.status(200).send(podcast);
     } catch (error) {
         res.status(500).send({ message: "Server error", error });
+    }
+});
+
+router.get("/audio/:audioId", async (req, res) => {
+    try {
+        const audioId = req.params.audioId;
+
+        // Validate audioId
+        if (!audioId) {
+            return res.status(400).send({ message: "Audio ID is required" });
+        }
+
+        // Get audio stream
+        const audioStream = await mongo.getAudioStreamFromId(audioId);
+
+        // Check if audio exists
+        if (!audioStream) {
+            return res.status(404).send({ message: "Audio not found" });
+        }
+
+        // Handle streaming errors
+        audioStream.on('error', (streamError) => {
+            console.error('Streaming error:', streamError);
+            res.status(500).send({ message: "Error streaming audio", error: streamError.message });
+        });
+
+        audioStream.pipe(res);
+    } catch (error) {
+        console.error('Audio retrieval error:', error);
+        res.status(500).send({
+            message: "Failed to retrieve audio",
+            error: error.message || "Unknown error occurred"
+        });
     }
 });
 
@@ -46,24 +79,66 @@ router.get("/:podcastId", async (req, res) => {
  *     peaks: [Number]
  *     authors: [{ name: String }]
  */
-router.post("/", (req, res,) => {
-    upload(req, res, (err) => {
+router.post("/", (req, res) => {
+    upload(req, res, async (err) => {
         if (err) {
             console.error('Multer error:', err);
+            return res.status(500).json({
+                error: 'File upload failed',
+                details: err.message
+            });
         }
 
         try {
             const fileData = req.file;
-            const metaData = req.body;
+
+            const metaData = await parseBuffer(fileData.buffer)
+            const audioPeaks = await getAudioPeaks(fileData.buffer);
+            const idAudio = await mongo.uploadPodcastAudio(fileData.buffer, fileData.originalname);
+
+            console.log(metaData);
+            console.log(audioPeaks);
+
+
+            const podcastMeta = {
+                title: req.body.title,
+                id: req.body.id,
+                audioUrl: `audio/${idAudio}`,
+                description: req.body.description,
+                content: req.body.content,
+                date: req.body.date,
+                image: req.body.image,
+                length: req.body.length,
+                size: fileData.size,
+                peaks: audioPeaks,
+                authors: req.body.authors
+            };
+
+            await mongo.uploadPodcastMeta(podcastMeta);
+
+
+
 
             if (!fileData || !metaData) {
-                return res.status(400).send({ message: "Missing file or metadata" });
+                return res.status(400).json({
+                    error: "Missing file or metadata"
+                });
             }
 
+
+            res.status(200).json({
+                message: "Upload successful",
+                file: fileData.originalname
+            });
+
         } catch (error) {
-            console.error(error);
+            console.error('Processing error:', error);
+            res.status(500).json({
+                error: 'Server error',
+                details: error.message
+            });
         }
     });
 });
 
-module.exports = router;
+export default router;

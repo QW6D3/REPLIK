@@ -1,24 +1,20 @@
-// Import dependencie
-const express = require("express");
-const cors = require("cors");
+// Import dependencies
+import express from "express";
+import cors from "cors";
+import authRouter from "./routes/auth.js";
+import podcastRouter from "./routes/podcast.js";
+import rssRouter from "./routes/rss.js";
 
 // Setup the express server
 const app = express();
 const port = 3000;
 
-if (process.env.NODE_ENV !== 'production') {
-  app.use(cors());
-}
+app.use(cors());
 
-corsOptions = {
+const corsOptions = {
   origin: "http://localhost:5173",
   optionsSuccessStatus: 200
-}
-// Import routes
-const authRouter = require("./routes/auth");
-const messagesRouter = require("./routes/messages");
-const podcastRouter = require("./routes/podcast");
-const rssRouter = require("./routes/rss");
+};
 
 // Setup all the routes
 app.use("/api/podcast", podcastRouter);

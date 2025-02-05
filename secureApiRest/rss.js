@@ -1,5 +1,5 @@
-const { Feed } = require("feed");
-const mongo = require("./mongo");
+import { Feed } from "feed";
+import * as mongo from "./mongo.js";
 
 async function createRss() {
     const podcastsMeta = await mongo.getPodcastsMeta();
@@ -35,6 +35,4 @@ async function createRss() {
     return feed.rss2();
 }
 
-
-
-module.exports = { createRss };
+export { createRss };

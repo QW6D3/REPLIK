@@ -1,9 +1,8 @@
-const jwt = require("jsonwebtoken");
-const express = require("express");
-const bcrypt = require("bcrypt");
+import jwt from "jsonwebtoken";
+import express from "express";
+import bcrypt from "bcrypt";
 
 const router = express.Router();
-
 
 router.post("/", async (req, res) => {
     const users = [{
@@ -46,4 +45,4 @@ router.post("/", async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
