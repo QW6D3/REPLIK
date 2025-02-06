@@ -94,6 +94,10 @@ export const uploadPodcastAudio = async (fileBuffer, fileName) => {
     return uploadStream.id;
 };
 
+export const getCoverFromTitle = (title) => {
+    return imageBucket.openDownloadStream({ title: title });
+}
+
 export const getCoverFromId = (id) => {
     return imageBucket.openDownloadStream(id);
 }
@@ -110,5 +114,6 @@ export default {
     uploadPodcastAudio,
     getAudioStreamFromId,
     uploadPodcastCover,
-    getCoverFromId
+    getCoverFromId,
+    getCoverFromTitle,
 };
