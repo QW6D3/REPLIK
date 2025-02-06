@@ -1,11 +1,8 @@
 import jwt from "jsonwebtoken";
 import express from "express";
 import bcrypt from "bcrypt";
-import dotenv from "dotenv";
 
 const router = express.Router();
-
-dotenv.config();
 
 router.post("/", async (req, res) => {
     const users = [{

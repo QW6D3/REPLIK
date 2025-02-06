@@ -7,6 +7,7 @@ import rssRouter from "./routes/rss.js";
 import coverRouter from "./routes/cover.js";
 import { editor } from "./middleware/roles.js";
 import authMiddleware from "./middleware/auth.js";
+import testRouter from "./routes/test.js";
 
 // Setup the express server
 const app = express();
