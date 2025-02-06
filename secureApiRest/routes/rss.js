@@ -1,5 +1,5 @@
 import express from "express";
-import { createRss } from "../rss.js";
+import { createRss } from "../services/rss.js";
 
 const router = express.Router();
 

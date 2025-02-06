@@ -1,7 +1,7 @@
 import express from "express";
-import mongo from "../mongo.js";
+import mongo from "../services/mongo.js";
 import { parseBuffer } from "music-metadata";
-import { getAudioPeaks } from "../audio.js";
+import { getAudioPeaks } from "../services/audio.js";
 import multer from "multer";
 import { v4 as uuidv4 } from 'uuid';
 
