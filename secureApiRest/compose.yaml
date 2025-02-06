@@ -16,6 +16,8 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
+      - AUTH_USER="admin"
+      - AUTH_PASSWORD="admin"
       - API_URL="localhost:8000/api"
     working_dir: /usr/src/app
     volumes:

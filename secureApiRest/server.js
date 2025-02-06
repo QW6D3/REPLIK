@@ -15,8 +15,11 @@ const port = 3000;
 
 app.use(cors());
 
-app.post("*", [authMiddleware], (req, res, next) => {
-  next();
+app.post("*", (req, res, next) => {
+  if (req.path.startsWith("/api/auth")) {
+    return next();
+  }
+  authMiddleware(req, res, next);
 });
 
 // Setup all the routes
