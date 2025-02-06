@@ -8,6 +8,8 @@ services:
     volumes:
       - .:/usr/src/app
     working_dir: /usr/src/app
-    command: ["/bin/sh", "-c", "npm ci && npm run build"]
+    command: [ "/bin/sh", "-c", "npm ci && npm run build" ]
     ports:
       - "3000:5173"
+    profiles:
+      - prod

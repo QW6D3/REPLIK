@@ -14,8 +14,7 @@ const port = 3000;
 
 app.use(cors());
 
-app.post("*", [authMiddleware, editor], (req, res, next) => {
-  console.log("Request received");
+app.post("*", [authMiddleware], (req, res, next) => {
   next();
 });
 
@@ -24,7 +23,7 @@ app.use("/api/podcasts", podcastRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/rss", rssRouter);
 app.use("/api/cover", coverRouter);
-
+app.use("/api/connected", testRouter);
 // Start the server
 app.listen(port, () => {
   console.log(`Listening on port ${port}...`);
