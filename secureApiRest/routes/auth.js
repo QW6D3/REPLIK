@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 
 const router = express.Router();
 
+router.use(express.json());
 router.post("/", async (req, res) => {
     const users = [{
         id: 1,

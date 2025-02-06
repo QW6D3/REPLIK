@@ -167,6 +167,10 @@ router.post("/", (req, res) => {
                 title: req.body.title,
                 audioId: idAudio,
                 coverId: idImage,
+                category: req.body.category || "Cinema",
+                copyright: req.body.copyright || "All rights reserved",
+                language: req.body.language || "fr",
+                country: req.body.country || "FR",
                 audioUrl: `podcasts/${podcastId}/audio`,
                 coverUrl: `podcasts/${podcastId}/cover`,
                 description: req.body.description,
@@ -176,7 +180,8 @@ router.post("/", (req, res) => {
                 length: req.body.length,
                 size: podcastFile.size,
                 peaks: audioPeaks,
-                authors: req.body.authors
+                authors: req.body.authors,
+                explicit: req.body.explicit || false
             };
 
             await mongo.uploadPodcastMeta(podcastMeta);

@@ -20,7 +20,27 @@ const podcastSchema = new Schema({
     length: Number,
     size: Number,
     peaks: [Number],
-    authors: [{ name: String }]
+    authors: [{ name: String }],
+    copyright: {
+        type: String,
+        default: "All rights reserved"
+    },
+    category: {
+        type: String,
+        default: "Cinema"
+    },
+    language: {
+        type: String,
+        default: "fr"
+    },
+    country: {
+        type: String,
+        default: "FR"
+    },
+    explicit: {
+        type: Boolean,
+        default: false
+    }
 });
 
 const Podcast = mongoose.model("Podcast", podcastSchema);
