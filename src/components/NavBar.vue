@@ -13,10 +13,10 @@ import { RouterLink } from 'vue-router'
           <RouterLink to="/" class="nav-link" active-class="active-link">Nos podcasts</RouterLink>
         </li>
         <li>
-          <RouterLink to="/about" class="nav-link" active-class="active-link">À propos</RouterLink>
+          <RouterLink to="about" class="nav-link" active-class="active-link">À propos</RouterLink>
         </li>
         <li>
-          <RouterLink to="/contact" class="nav-link" active-class="active-link">Contact</RouterLink>
+          <RouterLink to="contact" class="nav-link" active-class="active-link">Contact</RouterLink>
         </li>
       </ul>
     </nav>

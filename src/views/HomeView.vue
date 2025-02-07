@@ -34,7 +34,7 @@ onMounted(async () => {
       <div class="descPodcast">
         <h2>Dernière sortie</h2>
         <p>{{ latestPodcast.description || "Description indisponible" }}</p>
-        <a :href="`/podcasts/${latestPodcast._id}`">
+        <a :href="`podcasts/${latestPodcast._id}`">
           <img src="../assets/playButton.png" alt="Play Button" class="playIcon">
         </a>
       </div>
@@ -42,7 +42,7 @@ onMounted(async () => {
     </div>
 
     <div class="listPodcast">
-      <a v-for="podcast in podcasts" :key="podcast._id" :href="`/podcasts/${podcast._id}`">
+      <a v-for="podcast in podcasts" :key="podcast._id" :href="`podcasts/${podcast._id}`">
         <img :src="`${API_URL}/${podcast.coverUrl}`" :alt="`Illustration de ${podcast.title}`" :width="200"
           :height="200" style="object-fit: cover; border-radius: 10px;">
       </a>

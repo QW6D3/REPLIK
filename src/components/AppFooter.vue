@@ -35,10 +35,10 @@ const isSameOrigin = new URL(API_URL).origin === window.location.origin;
       </div>
       <nav>
         <a href="#">A Propos</a>
-        <a :href="isSameOrigin ? `${API_URL}/rss` : undefined" @click="!isSameOrigin && downloadFile(`${API_URL}/rss`, 'replik_podcast.xml')">Télécharger RSS</a>
+        <a :href="isSameOrigin ? `${API_URL}/rss` : '#'" @click="!isSameOrigin && downloadFile(`${API_URL}/rss`, 'replik_podcast.xml')">Télécharger RSS</a>
         <a href="/">Nos podcasts</a>
         <a href="#">Politique de confidentialité</a>
-        <a href="/contact">Contactez-nous</a>
+        <a href="contact">Contactez-nous</a>
       </nav>
       <p>&copy; REPLIK' 2024-2025</p>
     </div>
