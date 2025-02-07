@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import AudioPlayer from "../components/AudioPlayer.vue";
 import { useRoute } from "vue-router";
-import podcastData from "../../podcasts.json";
 import { onMounted, ref } from "vue";
 import { API_URL } from "@/config";
 

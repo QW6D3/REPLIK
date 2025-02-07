@@ -1,3 +1,4 @@
+name: Replik
 services:
   front-builder:
     image: node:22-alpine
@@ -6,10 +7,47 @@ services:
       - VITE_OUT_DIR=/usr/src/app/
       - VITE_API_URL=http://localhost:8000/api
     volumes:
-      - .:/usr/src/app
+      - ./:/usr/src/app
     working_dir: /usr/src/app
     command: [ "/bin/sh", "-c", "npm ci && npm run build" ]
     ports:
       - "3000:5173"
     profiles:
       - prod
+
+  api:
+    container_name: node-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - AUTH_USER="admin"
+      - AUTH_PASSWORD="admin"
+      - API_URL="localhost:8000/api"
+    working_dir: /usr/src/app
+    command: [ "sh", "-c", "npm i && dumb-init node server.js" ]
+    networks:
+      - backend
+    ports:
+      - 8000:3000
+
+  mongodb:
+    container_name: mongo
+    image: mongo:latest
+    networks:
+      - backend
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    ports:
+      - 27017:27017
+    volumes:
+      - database:/data/db
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
+
+volumes:
+  database:
