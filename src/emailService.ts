@@ -1,6 +1,13 @@
 import emailjs from '@emailjs/browser';
 
-export const sendEmail = async (formData) => {
+interface EmailFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+export const sendEmail = async (formData: EmailFormData) => {
   const serviceID = 'service_cijmdyg';
   const templateID = 'template_n2wv3ng';
   const publicKey = 'ZqL3Y1AhFbv3Oyhrd';

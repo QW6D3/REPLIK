@@ -3,7 +3,6 @@ ENV API_USER=adminReplik
 ENV API_PASSWORD=123456!
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
-COPY .env /usr/src/app/.env
 RUN npm ci --omit=dev && \
     echo "API_USER=$API_USER" >> .env && \
     echo "API_PASSWORD=$API_PASSWORD" >> .env

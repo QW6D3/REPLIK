@@ -20,36 +20,30 @@
     </div>
 </template>
   
-<script>
-    import { sendEmail } from '../emailService.js';
+<script setup lang="ts">
+    import { ref } from 'vue';
+    import { sendEmail } from '@/emailService';
     
-    export default {
-        data() {
-            return {
-                formData: {
-                    name: '',
-                    email: '',
-                    subject: '',
-                    message: '',
-                },
-                statusMessage: '',
-            };
-        },
-        methods: {
-            async handleSubmit() {
-                const result = await sendEmail(this.formData);
-                this.statusMessage = result.message;
+    const formData = ref({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+    
+    const statusMessage = ref('');
+    
+    const handleSubmit = async () => {
+        const result = await sendEmail(formData.value);
+        statusMessage.value = result.message;
         
-                if (result.success) {
-                    this.formData = {
-                        name: '',
-                        email: '',
-                        subject: '',
-                        message: '',
-                    };
-                }
-            },
-        },
+        if (result.success) {
+            formData.value = {
+                name: '',
+                email: '',
+                subject: '',
+                message: '',
+            };
+        }
     };
 </script>
-  

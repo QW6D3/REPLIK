@@ -1,9 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import { API_URL } from '@/config';
 import { ref, computed, onMounted } from 'vue'
 
-const podcasts = ref([])
-const latestPodcast = computed(() => podcasts.value[0] || null)
+interface Podcast {
+  _id: string;
+  description: string;
+  cover: string;
+  coverUrl: string;
+  title: string;
+}
+
+const podcasts = ref<Podcast[]>([])
+const latestPodcast = computed<Podcast | null>(() => podcasts.value[0] || null)
 
 onMounted(async () => {
   try {

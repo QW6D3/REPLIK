@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "module": "esnext"
+    "module": "esnext",
+    "types": ["vite/client"]
   },
+  "include": ["vite-env.d.ts"],
   "files": [],
   "references": [
     {

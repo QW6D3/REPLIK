@@ -1,5 +1,5 @@
 <template>
-  <div class="wavesurfer-container" @keydown.space.prevent="handleSpaceKey" tabindex="0">
+  <div class="wavesurfer-container" @keydown.space.prevent="handleKeyDown" tabindex="0">
     <!-- Zone de la forme d'onde -->
     <div ref="waveformRef" class="waveform"></div>
     <!-- Contrôles audio -->
