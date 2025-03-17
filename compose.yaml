@@ -5,13 +5,11 @@ services:
     environment:
       - VITE_BASE_URL=/replik
       - VITE_OUT_DIR=/usr/src/app/replik
-      - VITE_API_URL=http://localhost:8000/api/rss
+      - VITE_API_URL=http://localhost:8000/api
     volumes:
       - ./:/usr/src/app
     working_dir: /usr/src/app
     command: [ "/bin/sh", "-c", "npm ci && npm run build" ]
-    ports:
-      - "3000:5173"
     profiles:
       - build
 
