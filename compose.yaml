@@ -19,9 +19,11 @@ services:
     container_name: node-server
     build:
       context: ./api
-      args:
-        - AUTH_USER=admin
-        - AUTH_PASSWORD=12345
+    environment:  
+      - AUTH_USER=admin
+      - AUTH_PASSWORD_HASH={$AUTH_PASSWORD_HASH}
+    env_file:
+      - .env
     working_dir: /usr/src/app
     networks:
       - backend

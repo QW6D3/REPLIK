@@ -4,5 +4,5 @@ import { genSalt, hash } from "bcrypt";
 (async () => {
     // Hash the password
     const salt = await genSalt(15);
-    console.log(await hash("123", salt));
+    console.log(await hash("12345", salt));
 })();

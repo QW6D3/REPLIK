@@ -3,8 +3,8 @@ import express from "express";
 import bcrypt from "bcrypt";
 
 const router = express.Router();
-
 router.use(express.json());
+
 router.post("/", async (req, res) => {
     const users = [{
         id: 1,
@@ -14,6 +14,11 @@ router.post("/", async (req, res) => {
 
     try {
         const { username, password } = req.body;
+        console.log("Username reçu:", username);
+        console.log("Username attendu:", process.env.AUTH_USER);
+        console.log("Password reçu:", password);
+        console.log("Hash enregistré:", process.env.AUTH_PASSWORD);
+
         if (!username || !password) {
             return res.status(400).json({ message: "Les champs username et password sont obligatoires" });
         }

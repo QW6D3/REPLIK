@@ -1,5 +1,6 @@
 import express from "express";
 import mongo from "../services/mongo.js";
+import authMiddleware from "../middleware/auth.js";
 import { parseBuffer } from "music-metadata";
 import { getAudioPeaks } from "../services/audio.js";
 import multer from "multer";
@@ -138,7 +139,7 @@ router.get("/:podcastId/audio", async (req, res) => {
  *     peaks: [Number]
  *     authors: [{ name: String }]
  */
-router.post("/", (req, res) => {
+router.post("/", authMiddleware, (req, res) => {
     upload(req, res, async (err) => {
         if (err) {
             console.error('Multer error:', err);

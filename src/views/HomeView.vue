@@ -20,11 +20,13 @@ onMounted(async () => {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
     const data = await response.json()
+    console.log(data)
 
     podcasts.value = data
   } catch (error) {
     console.error("Erreur de chargement du fichier JSON :", error)
   }
+  console.log("Podcasts : ", podcasts.value);
 })
 </script>
 
